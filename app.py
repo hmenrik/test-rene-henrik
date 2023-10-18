@@ -11,6 +11,6 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
         self.wfile.write(b'<html><head><title>My Web Server</title></head>')
         self.wfile.write(b'<body><h1>Visitor IP Address: {}</h1></body></html>'.format(self.client_address[0].encode()))
 
-if __name__ == '__main__':
+if __name__ == '__app__':
     server = socketserver.TCPServer(('localhost', 80), MyHandler)
     server.serve_forever()
