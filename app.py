@@ -6,12 +6,14 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
         # Get the visitor's IP address. ändra till att läsa x-forwarded for
         ip_address = self.headers
         #client_address[0]
-
+        for header in self.headers:
+            print(header)
         # Create a web page with the visitor's IP address
         html = """
         <!DOCTYPE html>
         <html><head><title>ip.stg.int</title><meta charset="utf-8"></head>
-        <body><h1>Din IP-adress är: {}</h1></body></html>
+        <body><h1>Din IP-adress är: {}</h1>
+        </body></html>
         """.format(ip_address)
 
         # Send the web page to the visitor
