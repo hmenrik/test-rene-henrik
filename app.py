@@ -22,5 +22,5 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
         self.wfile.write(html.encode('utf-8'))
 
 if __name__ == '__main__':
-    server = socketserver.TCPServer(('', 80), MyHandler)
+    server = socketserver.TCPServer(('', 8080), MyHandler)
     server.serve_forever()
