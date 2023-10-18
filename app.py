@@ -1,6 +1,6 @@
 import http.server
 import socketserver
-
+#asd
 class MyHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
         # Get the visitor's IP address
