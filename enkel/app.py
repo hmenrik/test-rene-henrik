@@ -1,7 +1,7 @@
 import http.server
-import threading
+import socketserver
 
-PORT = 8000
+PORT = 80
 
 Handler = http.server.SimpleHTTPRequestHandler
 
@@ -13,5 +13,4 @@ def serve_forever():
 if __name__ == "__main__":
     server = http.server.HTTPServer(("", PORT), Handler)
     print("Serving at port", PORT)
-    threading.Thread(target=serve_forever).start()
-    server.serve_forever()
+    serve_forever()
