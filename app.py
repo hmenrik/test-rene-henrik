@@ -3,8 +3,9 @@ import socketserver
 #asd
 class MyHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
-        # Get the visitor's IP address
-        ip_address = self.client_address[0]
+        # Get the visitor's IP address. ändra till att läsa x-forwarded for
+        ip_address = self.headers
+        #client_address[0]
 
         # Create a web page with the visitor's IP address
         html = """
