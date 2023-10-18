@@ -9,8 +9,8 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
         # Create a web page with the visitor's IP address
         html = """
         <!DOCTYPE html>
-        <html><head><title>My Web Server</title></head>
-        <body><h1>Visitor IP Address: {}</h1></body></html>
+        <html><head><title>ip.stg.int</title></head>
+        <body><h1>Din IP-adress är: {}</h1></body></html>
         """.format(ip_address)
 
         # Send the web page to the visitor
