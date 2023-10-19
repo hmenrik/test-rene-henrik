@@ -8,6 +8,7 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
         
         # for header in self.headers:
         #     print(header)
+        ip_reneaddress = request.headers.get("x-forwarded-for", request.remote_addr)
             
             
         # Create a web page with the visitor's IP address
@@ -16,7 +17,7 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
         <html><head><title>ip.stg.int</title><meta charset="utf-8"></head>
         <body><h1>Din IP-adress är: {}</h1>
         </body></html>
-        """.format(ip_address)
+        """.format(ip_reneaddress)
 
         # Send the web page to the visitor
         self.send_response(200)
