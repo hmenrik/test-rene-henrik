@@ -9,7 +9,7 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
         
         # for header in self.headers:
         #     print(header)
-        ip_reneaddress = request.headers.get("x-forwarded-for", request.remote_addr)
+        ip_reneaddress = request.headers.get("X-Forwarded-For", request.remote_addr)
             
             
         # Create a web page with the visitor's IP address
