@@ -8,7 +8,10 @@ app.get("/", (req, res) => {
   if (!ipAddress) {
     ipAddress = req.connection.remoteAddress;
   }
+  // Logga IP-adress till konsolen
+  console.log(`Besökare med IP-adress ${ipAddress} har anslutit.`);
 
+  // Visar IP för besökaren, i websidan
   res.send(`Din IP-adress är: ${ipAddress}`);
 });
 
