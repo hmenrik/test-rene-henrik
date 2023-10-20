@@ -6,11 +6,11 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
         # Get the visitor's IP address. ändra till att läsa x-forwarded for
         ip_address = self.client_address[0]
-        
+        headers = {'Content-Type': 'text/html'}
         # for header in self.headers:
         #     print(header)
-        ip_reneaddress = request.headers.get("x-forwarded-for", request.remote_addr)
-            
+        #ip_reneaddress = request.headers.get("x-forwarded-for", request.remote_addr)
+        ip_reneaddress = request.get("x-forwarded-for", headers=headers)
             
         # Create a web page with the visitor's IP address
         html = """
