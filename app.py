@@ -1,5 +1,6 @@
 import http.server
 import socketserver
+from urllib import request
 #asd
 class MyHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
