@@ -1,4 +1,4 @@
-FROM microsoft/powershell:7.3
+FROM mcr.microsoft.com/powershell:latest
 
 COPY app.ps1 .
 
