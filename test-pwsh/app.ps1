@@ -16,11 +16,13 @@ Try {
         $response = ((($out).Split("`n") | Select-String -Pattern 'x-forwarded-for:') -split ':')[1].Trim()
         # logga i console 
         write-host "$(get-date) : $response"
+        
         # titta på alla headers
-        $headers = $out -split "`r`n"
-        foreach ($header in $headers) {
-            Write-Host $header
-        }
+        # $headers = $out -split "`r`n"
+        # foreach ($header in $headers) {
+        #     Write-Host $header
+        # }
+
         # svara
         $responseBytes = [System.Text.Encoding]::UTF8.GetBytes($response)
         $c.Response.OutputStream.Write($responseBytes, 0, $responseBytes.Length)
