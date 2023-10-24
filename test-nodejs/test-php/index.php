@@ -1,7 +1,6 @@
 function get_client_ip()
 {
-
-    // Header that is used by the trusted proxy to refer to
+    // Header that is used by the proxy to refer to
     // the original IP
     $proxy_header = "HTTP_X_FORWARDED_FOR";
 
