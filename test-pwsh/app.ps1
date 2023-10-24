@@ -17,7 +17,7 @@ Try {
 
         $response = ((($out).Split("`n") | Select-String -Pattern 'x-forwarded-for:') -split ':')[1].Trim()
         # logga i console 
-        write-host "loop:$nr datum:$(get-date -Format o) ip:$response"
+        write-host "loop:$nr ip:$response"
         
         # titta på alla headers
         # $headers = $out -split "`r`n"
