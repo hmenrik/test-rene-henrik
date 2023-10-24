@@ -12,16 +12,11 @@ function get_client_ip()
         // Only the IP added by the last proxy (last IP in the list) can be trusted.
         $client_ip = trim(end(explode(",", $_SERVER[$proxy_header])));
 
-        // Validate just in case
-        if (filter_var($client_ip, FILTER_VALIDATE_IP)) {
-            return $client_ip;
-        } else {
-            // Validation failed - beat the guy who configured the proxy or
-            // the guy who created the trusted proxy list?
-            // TODO: some error handling to notify about the need of punishment
-        }
+        return $client_ip;
     }
-
+    else {
+        return "error"
+    }
 }
 
 print get_client_ip();
