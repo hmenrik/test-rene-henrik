@@ -6,6 +6,7 @@ Try {
     $b.Prefixes.Add("http://+:8080/")
     [int]$nr = 0
     $b.Start()
+    $b.IsListening 
     while ($true) {
         $c = $b.GetContext()
 
@@ -16,7 +17,7 @@ Try {
 
         $response = ((($out).Split("`n") | Select-String -Pattern 'x-forwarded-for:') -split ':')[1].Trim()
         # logga i console 
-        write-host "loop:$nr datum:$(get-date) ip:$response"
+        write-host "loop:$nr datum:$(get-date -Format o) ip:$response"
         
         # titta på alla headers
         # $headers = $out -split "`r`n"
