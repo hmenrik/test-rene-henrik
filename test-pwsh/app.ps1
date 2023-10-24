@@ -14,7 +14,7 @@ Try {
         $c.Response.ContentType = 'text'
 
         $response = ((($out).Split("`n") | Select-String -Pattern 'x-forwarded-for:') -split ':')[1].Trim()
-        # logga i console
+        # logga i console 
         #$response
         $responseBytes = [System.Text.Encoding]::UTF8.GetBytes($response)
         $c.Response.OutputStream.Write($responseBytes, 0, $responseBytes.Length)
