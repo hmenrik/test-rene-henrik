@@ -5,8 +5,8 @@ Try {
     $b =  New-Object System.Net.HttpListener
     $b.Prefixes.Add("http://+:8080/")
     [int]$nr = 0
+    $b.Start()
     while ($true) {
-        $b.Start()
         $c = $b.GetContext()
 
         $out =  $c.Request.Headers.ToString()
