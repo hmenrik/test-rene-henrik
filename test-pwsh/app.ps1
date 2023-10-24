@@ -11,7 +11,7 @@ while ($true) {
  $c.Response.StatusCode = 200
  $c.Response.ContentType = 'text'
 
- $responseJson = "$($out -match 'x-forwarder-for')"
+ $responseJson = "$out"
  $responseBytes = [System.Text.Encoding]::UTF8.GetBytes($responseJson)
  $c.Response.OutputStream.Write($responseBytes, 0, $responseBytes.Length)
  $c.Response.Close()
