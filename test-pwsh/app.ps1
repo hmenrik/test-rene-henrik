@@ -16,9 +16,9 @@ Try {
         $response = ((($out).Split("`n") | Select-String -Pattern 'x-forwarded-for:') -split ':')[1].Trim()
         # logga i console 
         #$response
-        write-host "anv kommer från $response"
+        write-host "$(get-date) : $response"
         # svara
-        $responseBytes = [System.Text.Encoding]::UTF8.GetBytes("$(get-date) $response")
+        $responseBytes = [System.Text.Encoding]::UTF8.GetBytes($response)
         $c.Response.OutputStream.Write($responseBytes, 0, $responseBytes.Length)
         $c.Response.Close()
     }
