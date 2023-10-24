@@ -1,3 +1,4 @@
+<?php
 function get_client_ip()
 {
     // Header that is used by the proxy to refer to
@@ -19,3 +20,4 @@ function get_client_ip()
 }
 
 print get_client_ip();
+?>
