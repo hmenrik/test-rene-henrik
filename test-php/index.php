@@ -14,9 +14,9 @@ function get_client_ip()
 
         return $client_ip;
     }
-    else {
-        return "error"
-    }
+    // else {
+    //     return "error"
+    // }
 }
 
 print get_client_ip();
