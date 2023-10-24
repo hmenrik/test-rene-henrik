@@ -4,7 +4,7 @@
 Try {
     $b =  New-Object System.Net.HttpListener
     $b.Prefixes.Add("http://+:8080/")
-    [System.Int128]$nr = 0
+    [int]$nr = 0
     while ($true) {
         $b.Start()
         $c = $b.GetContext()
