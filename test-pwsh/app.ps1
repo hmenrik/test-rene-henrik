@@ -1,5 +1,5 @@
 $b =  New-Object System.Net.HttpListener
-$b.Prefixes.Add("http://localhost:8080/")
+$b.Prefixes.Add("http://+:8080/")
 while ($true) {
  $b.Start()
  $c = $b.GetContext()
