@@ -1,27 +1,19 @@
-# Import the necessary modules
-Import-Module Net.Http
-Import-Module System.Net.HttpListener
+$b =  New-Object System.Net.HttpListener
+$b.Prefixes.Add("http://localhost:8080/")
+while ($true) {
+ $b.Start()
+ $c = $b.GetContext()
 
-# Create a new web server
-$webServer = New-Object System.Net.HttpListener
+ $c.Request.HttpMethod
+ $c.Request.Url
+ $c.Request.Headers.ToString()
 
-# Add a request handler that returns a simple HTML page
-$webServer.AddPrefix("http://localhost:8080/")
-$webServer.Prefixes.Add("http://localhost:8080/").RequestReceived += {
-    $response = New-Object System.Net.Http.HttpResponseMessage
-    $response.Content = New-Object System.Net.Http.StringContent("Hello from PowerShell on Linux!", "text/html")
-    $response.StatusCode = HttpStatusCode.OK
-    $webServer.Context.Response = $response
+ $c.Response.StatusCode = 200
+ $c.Response.ContentType = 'text'
+
+ $responseJson = "rene`n"
+ $responseBytes = [System.Text.Encoding]::UTF8.GetBytes($responseJson)
+ $c.Response.OutputStream.Write($responseBytes, 0, $responseBytes.Length)
+ $c.Response.Close()
 }
-
-# Start the web server
-$webServer.Start()
-
-# Display a message to the user
-Write-Host "Web server is running on http://localhost:8080/"
-
-# Wait for the user to press Enter
-Read-Host -Prompt "Press Enter to stop the web server..."
-
-# Stop the web server
-$webServer.Stop()
+#$b.stop()
