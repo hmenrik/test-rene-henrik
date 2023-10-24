@@ -11,9 +11,9 @@ while ($true) {
  $c.Response.StatusCode = 200
  $c.Response.ContentType = 'text'
 
- $responseJson = "$($out -match 'x-forwarded-for')"
- $responseBytes = [System.Text.Encoding]::UTF8.GetBytes($responseJson)
+ $response = ((($out).Split("`n") | Select-String -Pattern 'x-forwarded-for:') -split ':')[1].Trim()
+ $responseBytes = [System.Text.Encoding]::UTF8.GetBytes($response)
  $c.Response.OutputStream.Write($responseBytes, 0, $responseBytes.Length)
  $c.Response.Close()
 }
-#$b.stop()
+
