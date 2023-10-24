@@ -18,7 +18,7 @@ Try {
         #$response
         write-host "anv kommer från $response"
         # svara
-        $responseBytes = [System.Text.Encoding]::UTF8.GetBytes($response)
+        $responseBytes = [System.Text.Encoding]::UTF8.GetBytes("$(get-date) $response")
         $c.Response.OutputStream.Write($responseBytes, 0, $responseBytes.Length)
         $c.Response.Close()
     }
