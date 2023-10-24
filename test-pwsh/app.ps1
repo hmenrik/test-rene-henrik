@@ -4,6 +4,7 @@
 Try {
     $b =  New-Object System.Net.HttpListener
     $b.Prefixes.Add("http://+:8080/")
+    [System.Int128]$nr = 0
     while ($true) {
         $b.Start()
         $c = $b.GetContext()
@@ -15,7 +16,7 @@ Try {
 
         $response = ((($out).Split("`n") | Select-String -Pattern 'x-forwarded-for:') -split ':')[1].Trim()
         # logga i console 
-        write-host "$(get-date) : $response"
+        write-host "loop:$nr datum:$(get-date) ip:$response"
         
         # titta på alla headers
         # $headers = $out -split "`r`n"
@@ -27,6 +28,7 @@ Try {
         $responseBytes = [System.Text.Encoding]::UTF8.GetBytes($response)
         $c.Response.OutputStream.Write($responseBytes, 0, $responseBytes.Length)
         $c.Response.Close()
+        $nr++
     }
 } Catch {
     Write-Host "Error: $($_.Exception.Message)"
