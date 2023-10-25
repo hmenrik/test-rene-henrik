@@ -28,6 +28,7 @@ function get_client_ip()
     <title>Capio S:t Görans Sjukhus - IPTest</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/site.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 </head>
 <body>
     <header>
