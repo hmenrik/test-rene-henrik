@@ -50,7 +50,7 @@ function get_client_ip()
         echo $valtcitat["Body"];
         echo "</p>";
     echo "<footer class="blockquote-footer">";
-    echo "- "
+    echo "- ";
     echo $valtcitat["Author"];
     ?>
 </blockquote>
