@@ -19,7 +19,7 @@ function get_client_ip()
     //     return "error"
     // }
 }
-
+?>
 
 <html lang="en">
 <head>
@@ -37,7 +37,7 @@ function get_client_ip()
             
 <div class="jumbotron mt-4">
     <h1>Din IP-adress är:</h1>
-    <h1 class="display-3">print get_client_ip();</h1>
+    <h1 class="display-3"><?php print get_client_ip(); ?></h1>
 </div>
 <blockquote class="blockquote text-center">
     <p class="mb-0">
@@ -55,4 +55,3 @@ function get_client_ip()
 </html>
 
 
-?>
