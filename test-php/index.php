@@ -41,10 +41,18 @@ function get_client_ip()
 </div>
 <blockquote class="blockquote text-center">
     <p class="mb-0">
-    Even the darkest night will end and the sun will rise
-    </p>
-    <footer class="blockquote-footer">
-    Les Mis&#xE9;rables</footer>
+    <?php
+        $citat = file_get_contents('citat.json');  //read file
+        $randomquote = rand(0,34);
+        $json = json_decode($citat);         //decode json to array
+        $valtcitat = get_object_vars($json[$randomquote]);
+
+        echo $valtcitat["Body"];
+        echo "</p>";
+    echo "<footer class="blockquote-footer">";
+    echo "- "
+    echo $valtcitat["Author"];
+    ?>
 </blockquote>
         </main>
     </div>
