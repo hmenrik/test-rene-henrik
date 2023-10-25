@@ -19,7 +19,7 @@ Try {
         # logga i console 
         write-host "loop:$nr ip:$response"
         
-        # titta på alla headers
+        # titta på alla headers jag kompletterar
         # $headers = $out -split "`r`n"
         # foreach ($header in $headers) {
         #     Write-Host $header
