@@ -48,9 +48,9 @@ function get_client_ip()
         $valtcitat = get_object_vars($json[$randomquote]);
 
         echo $valtcitat["Body"];
-        echo "</p>";
-    echo "<footer class="blockquote-footer">";
-    echo "- ";
+        echo '</p>';
+    echo '<footer class="blockquote-footer">';
+    echo '- ';
     echo $valtcitat["Author"];
     ?>
 </blockquote>
