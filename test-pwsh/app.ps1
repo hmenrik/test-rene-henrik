@@ -6,7 +6,7 @@ Try {
     $b.Prefixes.Add("http://+:8080/")
     [int]$nr = 0
     $b.Start()
-    if ($b.IsListening) {'web server is running...'} else {break}
+    if ($b.IsListening) {"$(get-date -format o) web server is running..."} else {break}
     while ($true) {
         $c = $b.GetContext()
 
